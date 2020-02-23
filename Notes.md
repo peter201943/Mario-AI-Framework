@@ -1285,3 +1285,12 @@ strat3:
 
 ---------
 
+==================================================================================
+
+## Cool Stuff
+
+![Video](https://www.youtube.com/watch?v=M4K63BCFPz4)  
+![plaintext](https://drive.google.com/uc?export=view&id=1T-wL3KFgkL8Iorz96iF-lTNwF0S8kIJ3)  
+![declaration](https://drive.google.com/uc?export=view&id=128YKIV39eilNYVtDCNnfTl6HjwOI6X4E)  
+![insertion](https://drive.google.com/uc?export=view&id=1bHvsL9ia_Y9zEdjCVRLj7AV2hXhywrZD)  
+
