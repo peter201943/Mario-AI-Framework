@@ -10,7 +10,7 @@ public class Action extends Task{
 	}
 	
 	@Override
-	public Status Execute(boolean[] action, MarioForwardModel model) {
+	public Status Execute(ActionState action, MarioForwardModel model) {
 		return new Win();
 	}
 

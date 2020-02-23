@@ -12,8 +12,8 @@ public class Task{
     public Task() {
     }
     
-    public Status Execute(boolean[] action, MarioForwardModel model) {
-    	action =  new boolean[]{false, false, false, false, false};
+    public Status Execute(ActionState action, MarioForwardModel model) {
+    	action =  new ActionState();
     	return new Win(); 
     }
 }

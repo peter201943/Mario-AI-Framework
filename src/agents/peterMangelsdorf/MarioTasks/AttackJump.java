@@ -21,8 +21,8 @@ public class AttackJump extends Action {
 	}
 	
 	@Override
-	public Status Execute(boolean[] action, MarioForwardModel model) {
-		action = sequence.get(counter);
+	public Status Execute(ActionState action, MarioForwardModel model) {
+		action.value = sequence.get(counter);
 		counter += 1;
 		if (counter > sequence.size())
 		{

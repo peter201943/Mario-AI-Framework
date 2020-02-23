@@ -11,6 +11,24 @@ import agents.peterMangelsdorf.BasicTasks.*;
 import agents.peterMangelsdorf.MarioTasks.*;
 import agents.peterMangelsdorf.Helpers.*;
 
+
+/**
+ * 
+ * @author 	Peter Mangelsdorf
+ * @email  	pjm349@drexel.edu
+ * @phone	717-385-7068
+ * @date	2020 FEB 22
+ *
+ * NOTES
+ * =====
+ * This file is largely based off the random agent (hence the random section).
+ * It should ignore that part.
+ *
+ */
+
+
+
+
 public class Agent implements MarioAgent {
     
 	
@@ -42,13 +60,17 @@ public class Agent implements MarioAgent {
     public void initialize(MarioForwardModel model, MarioTimer timer) {
         rnd = new Random();
         choices = makeChoices();
-        bt = makeBT();
+        //bt = makeBT();
+        bt = makeTest();
     }
 
     @Override
     public boolean[] getActions(MarioForwardModel model, MarioTimer timer) {
-        //return bt.Execute(new boolean[]{false, false, false, false, false}, model);
-    	return choices.get(rnd.nextInt(choices.size()));
+    	ActionState theAction = new ActionState();
+    	bt.Execute(theAction, model);
+    	//System.out.println("[0] Action: (" + timer.getRemainingTime() + ") " + theAction[0] + " " + theAction[1] + " " + theAction[2] + " " + theAction[3] + " " + theAction[4]);
+        return theAction.value;
+    	//return choices.get(rnd.nextInt(choices.size()));
     }
 
     @Override
@@ -71,6 +93,13 @@ public class Agent implements MarioAgent {
     
     // Makers
     
+    private Container makeTest() {
+    	Container newBT = new Do();
+    		Action runRight = new RunRight();
+    		newBT.Add(runRight);
+    	return newBT;
+    }
+    
     private Container makeBT() {
     	
     	// Declarations -- Correct Order
@@ -90,7 +119,7 @@ public class Agent implements MarioAgent {
 		    	Container doThree = new Do();
 		          	//Action runRight = new RunRight();
 
-    	// Insertions -- Reverse Order
+		    		// Insertions -- Reverse Order
 		    		doOne.Add(enemiesClose);
 		    				secondDo.Add(enemiesInRange);
 		    				secondDo.Add(attackJump);

@@ -11,8 +11,9 @@ public class Wait extends Action {
 	}
 	
 	@Override
-	public Status Execute(boolean[] action, MarioForwardModel model) {
-		action = new boolean[] {false, false, false, false, false};
+	public Status Execute(ActionState action, MarioForwardModel model) {
+		action = new ActionState();
+		System.out.println("WAITING!!!"); // DEBUG !!! DELETEME !!!
 		return new Win();
 	}
 }

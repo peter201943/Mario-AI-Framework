@@ -13,7 +13,7 @@ public class Choose extends Container{
 	}
 	
 	@Override
-	public Status Execute(boolean[] action, MarioForwardModel model) {
+	public Status Execute(ActionState action, MarioForwardModel model) {
 		Status temp = new Status();
 		for (Task child : this.Children()){
 			temp = child.Execute(action, model);

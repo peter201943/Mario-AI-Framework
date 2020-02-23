@@ -14,8 +14,8 @@ public class RunRight extends Action {
 	}
 	
 	@Override
-	public Status Execute(boolean[] action, MarioForwardModel model) {
-		action = new boolean[] {false, true, false, true, false};
+	public Status Execute(ActionState action, MarioForwardModel model) {
+		action.value = new boolean[] {false, true, false, true, false};
 		return new Win();
 	}
 }

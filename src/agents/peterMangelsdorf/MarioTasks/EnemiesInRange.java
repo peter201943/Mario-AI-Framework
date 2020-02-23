@@ -18,7 +18,7 @@ public class EnemiesInRange extends Condition {
 	}
 	
 	@Override
-	public Status Execute(boolean[] action, MarioForwardModel model) {
+	public Status Execute(ActionState action, MarioForwardModel model) {
 		
 		// Update
 		this.myPos = model.getMarioFloatPos();
@@ -41,6 +41,7 @@ public class EnemiesInRange extends Condition {
 				
 				// Process each enemy
 				if (distance() < targetRange) {
+					System.out.println("KILL THEM!!!"); // DEBUG !!! DELETEME !!!
 					return new Win();
 				}
 			}

@@ -14,8 +14,8 @@ public class Jump extends Action {
 	}
 	
 	@Override
-	public Status Execute(boolean[] action, MarioForwardModel model) {
-		action = new boolean[] {false, false, false, false, true};
+	public Status Execute(ActionState action, MarioForwardModel model) {
+		action.value = new boolean[] {false, false, false, false, true};
 		return new Win();
 	}
 }
