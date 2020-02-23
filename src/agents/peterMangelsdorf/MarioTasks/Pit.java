@@ -6,8 +6,11 @@ import engine.core.MarioForwardModel;
 
 public class Pit extends Condition{
 
+	private int offSet = 5;
+	
 	public Pit() {
 		super();
+		offSet += 1;	// offSet cannot be < 1 !!!!
 	}
 	
 	
@@ -23,7 +26,7 @@ public class Pit extends Condition{
 	public Status Execute(ActionState action, MarioForwardModel model) {
 		
 		// Decide Depth		
-		if (model.getScreenSceneObservation()[model.obsGridWidth - 1][model.obsGridHeight - 1] == 0) {
+		if (model.getScreenSceneObservation()[model.obsGridWidth - offSet][model.obsGridHeight - 1] == 0) {
 			System.out.println("ITS THE END OF THE WORLD"); // DEBUG !!! DELETEME !!!
 			return new Win();
 		}
