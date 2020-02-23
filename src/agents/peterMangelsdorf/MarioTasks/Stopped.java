@@ -17,10 +17,11 @@ public class Stopped extends Condition{
 		
 		// Decide Logic
 		if (stopped) {
-			System.out.println("STOPPED!!!"); // DEBUG !!! DELETEME !!!
+			System.out.println("OOF"); // DEBUG !!! DELETEME !!!
 			return new Win();
 		}
 		else {
+			System.out.println("SANIC TIME"); // DEBUG !!! DELETEME !!!
 			return new Fail();
 		}
 	}

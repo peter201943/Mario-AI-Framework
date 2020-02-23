@@ -60,8 +60,8 @@ public class Agent implements MarioAgent {
     public void initialize(MarioForwardModel model, MarioTimer timer) {
         rnd = new Random();
         choices = makeChoices();
-        //bt = makeBT();
-        bt = makeTest();
+        bt = makeBT();
+        //bt = makeTest();
     }
 
     @Override

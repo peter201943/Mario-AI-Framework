@@ -13,7 +13,7 @@ public class Wait extends Action {
 	@Override
 	public Status Execute(ActionState action, MarioForwardModel model) {
 		action = new ActionState();
-		System.out.println("WAITING!!!"); // DEBUG !!! DELETEME !!!
+		System.out.println("WAIT FOR IT"); // DEBUG !!! DELETEME !!!
 		return new Win();
 	}
 }

@@ -11,7 +11,7 @@ public class EnemiesClose extends Condition {
 	float[] enemies;
 	float enemy_x = 0;
 	float enemy_y = 0;
-	float targetRange = 3;
+	float targetRange = 80;
 	
 	public EnemiesClose() {
 		super();
@@ -41,7 +41,7 @@ public class EnemiesClose extends Condition {
 				
 				// Process each enemy
 				if (distance() < targetRange) {
-					System.out.println("I CAN SEE THEM!!!"); // DEBUG !!! DELETEME !!!
+					System.out.println("I CAN SEE THEM"); // DEBUG !!! DELETEME !!!
 					return new Win();
 				}
 			}
@@ -54,6 +54,7 @@ public class EnemiesClose extends Condition {
 		}
 		
 		// Base Cases: No one is nearby/No one exists
+		System.out.println("NOBODY'S HOME"); // DEBUG !!! DELETEME !!!
 		return new Fail();
 	}
 	
@@ -62,6 +63,7 @@ public class EnemiesClose extends Condition {
 		result += (enemy_x - myPos[0]) * (enemy_x - myPos[0]);
 		result += (enemy_y - myPos[1]) * (enemy_y - myPos[1]);
 		result = (float) Math.sqrt(result);
+		System.out.println("Distance: " + result);
 		return result;
 	}
 

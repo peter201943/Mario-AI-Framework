@@ -11,7 +11,7 @@ public class EnemiesInRange extends Condition {
 	float[] enemies;
 	float enemy_x = 0;
 	float enemy_y = 0;
-	float targetRange = 1;
+	float targetRange = 50;
 	
 	public EnemiesInRange() {
 		super();
@@ -41,7 +41,7 @@ public class EnemiesInRange extends Condition {
 				
 				// Process each enemy
 				if (distance() < targetRange) {
-					System.out.println("KILL THEM!!!"); // DEBUG !!! DELETEME !!!
+					System.out.println("NOW"); // DEBUG !!! DELETEME !!!
 					return new Win();
 				}
 			}
@@ -54,6 +54,7 @@ public class EnemiesInRange extends Condition {
 		}
 		
 		// Base Cases: No one is nearby/No one exists
+		System.out.println("NOT YET"); // DEBUG !!! DELETEME !!!
 		return new Fail();
 	}
 	
