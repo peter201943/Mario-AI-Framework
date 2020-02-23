@@ -25,7 +25,6 @@ public class Agent implements MarioAgent {
     private Random rnd;
     private ArrayList<boolean[]> choices;
     private Container bt;
-    private MarioForwardModel model;
 
     
     
@@ -41,7 +40,6 @@ public class Agent implements MarioAgent {
     
     @Override
     public void initialize(MarioForwardModel model, MarioTimer timer) {
-        this.model = model; 
         rnd = new Random();
         choices = makeChoices();
         bt = makeBT();
@@ -49,7 +47,8 @@ public class Agent implements MarioAgent {
 
     @Override
     public boolean[] getActions(MarioForwardModel model, MarioTimer timer) {
-        return choices.get(rnd.nextInt(choices.size()));
+        //return bt.Execute(new boolean[]{false, false, false, false, false}, model);
+    	return choices.get(rnd.nextInt(choices.size()));
     }
 
     @Override
@@ -80,6 +79,7 @@ public class Agent implements MarioAgent {
     	//baseChoose.Add(doOne);
     	
     	// Second Clause: Obstacles
+    	
     	//baseChoose.Add(doTwo);
     	
     	// Third Clause: Time

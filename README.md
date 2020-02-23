@@ -63,8 +63,8 @@
             │   ├── RunRight.java           // Action               -- Returns Right and Run
             │   ├── AttackJump.java         // Action               -- Returns Jump/Right commands to kill an enemy
             │   ├── Stopped.java            // Condition            -- Measure speed of Mario
-            │   ├── EnemyInRange.java       // Condition            -- Can we step/jump on an enemy?
-            │   └── EnemiesClose.java       // Condition            -- Do we need to worry?
+            │   ├── EnemiesClose.java       // Condition            -- Do we need to worry?
+            │   └── EnemyInRange.java       // Condition            -- Can we step/jump on an enemy?
             └── Agent.java                  // Agent                -- Provide easy access to BT functionality as a standard agent
 ```
 
