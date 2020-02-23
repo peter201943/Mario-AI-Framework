@@ -14,11 +14,10 @@
      - HW3: Mario Behavior Trees
  - **Student**
      - Peter J. Mangelsdorf
-     - pjm349@drexel.edu
-     - 717-385-7068
+     - pjm349
  - **Professor**
      - Ehsan Khosroshahi
-     - eb452@drexel.edu
+     - eb452
  - **Contents**
      - [About](#about)
      - [Links](#links)
