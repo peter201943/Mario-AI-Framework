@@ -24,7 +24,7 @@ public class AttackJump extends Action {
 	public Status Execute(ActionState action, MarioForwardModel model) {
 		action.value = sequence.get(counter);
 		counter += 1;
-		if (counter > sequence.size())
+		if (counter >= sequence.size())
 		{
 			counter = 0;
 		}

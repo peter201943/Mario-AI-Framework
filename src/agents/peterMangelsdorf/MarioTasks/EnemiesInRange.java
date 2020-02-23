@@ -21,7 +21,10 @@ public class EnemiesInRange extends Condition {
 	public Status Execute(ActionState action, MarioForwardModel model) {
 		
 		// Update
-		this.myPos = model.getMarioFloatPos();
+		if ((this.myPos = model.getMarioFloatPos()) == null) {
+			System.out.println("~~Cursed Null Pointer~~"); // DEBUG !!! DELETEME !!!
+			return new Fail();
+		}
 		this.enemies = model.getEnemiesFloatPos();
 		
 		// Who Programs this way? Seriously? WTF?
@@ -33,6 +36,8 @@ public class EnemiesInRange extends Condition {
 		int i = 0;
 		// Per each enemy
 		for (float row : enemies) {
+			
+			// Get Coordinates
 			if (i == 1) {
 				this.enemy_x = row;
 			}
@@ -46,7 +51,7 @@ public class EnemiesInRange extends Condition {
 				}
 			}
 			
-			// Which is 3 rows
+			// Enemy is 3 rows
 			i++;
 			if (i > 2) {
 				i = 0;

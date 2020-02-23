@@ -61,6 +61,7 @@
             │   ├── Wait.java               // Action               -- Returns [bool] of no action
             │   ├── Jump.java               // Action               -- Returns Jump
             │   ├── RunRight.java           // Action               -- Returns Right and Run
+            │   ├── RightRunJump.java       // Action               -- Returns Right and Run and Jump
             │   ├── AttackJump.java         // Action               -- Returns Jump/Right commands to kill an enemy
             │   ├── Stopped.java            // Condition            -- Measure speed of Mario
             │   ├── EnemiesClose.java       // Condition            -- Do we need to worry?

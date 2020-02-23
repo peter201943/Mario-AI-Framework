@@ -21,7 +21,10 @@ public class EnemiesClose extends Condition {
 	public Status Execute(ActionState action, MarioForwardModel model) {
 		
 		// Update
-		this.myPos = model.getMarioFloatPos();
+		if ((this.myPos = model.getMarioFloatPos()) == null) {
+			System.out.println("~~Cursed Null Pointer~~"); // DEBUG !!! DELETEME !!!
+			return new Fail();
+		}
 		this.enemies = model.getEnemiesFloatPos();
 		
 		// Who Programs this way? Seriously? WTF?
@@ -63,7 +66,6 @@ public class EnemiesClose extends Condition {
 		result += (enemy_x - myPos[0]) * (enemy_x - myPos[0]);
 		result += (enemy_y - myPos[1]) * (enemy_y - myPos[1]);
 		result = (float) Math.sqrt(result);
-		System.out.println("Distance: " + result);
 		return result;
 	}
 
