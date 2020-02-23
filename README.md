@@ -24,7 +24,8 @@
      - [Links](#links)
      - [Additions](#additions)
      - [Progress](#progress)
-     - [Design](#design)
+     - [Agent Design](#agent-design)
+     - [Video Demonstration](#video-demonstration)
 
 
 ## Links
@@ -80,6 +81,13 @@
  - We are now in the new source repo!
  - Thanks to https://help.github.com/en/github/creating-cloning-and-archiving-repositories/duplicating-a-repository
  - Much easier to load agents...
+ - If you are wondering what happened, see my old repo at this link:
+```
+https://github.com/peter201943/Mario-Behavior-Trees
+```
+Long Story Short: I couldn't get any of the code to work. There were bugs, then there was confusion, and at that point I had spent over 2 days trying to get it to work.
+I decided then to look for another implementation of this project in Java.
+I hope that if this project is to be done again in the future, that you use this version, as it is far more robust, up to data, and well organized.  
 
 
 ### Chapter 2: Hiring an Agent
@@ -152,23 +160,44 @@ do:                                     -- sequence
 # Forward Jump
 do:
     choose:
-        do:                             -- deal with enemies
+        # deal with enemies
+        do:
             enemiesClose?
             choose:
                 do:
                     enemyInRange?
                     attackJump!
                 wait!
-        do:                             -- deal with walls
+        # deal with walls
+        do:
             stopped?
             rightRunJump!
-        do:                             -- deal with pits
+        # deal with pits
+        do:
             pit?
             rightRunJump!
-        do:                             -- deal with clock
+        # deal with clock
+        do:
             runRight!
 ```
 
 
 ---------
+
+
+## Video Demonstration
+
+A video of my agent can be accessed on YouTube at this link:
+```
+https://www.youtube.com/watch?v=M4K63BCFPz4
+```
+
+
+---------
+
+
+This Project can be accessed on [Github](https://github.com/peter201943/Mario-AI-Framework) _please request permission, the repo is private_.
+```
+https://github.com/peter201943/Mario-AI-Framework
+```
 
