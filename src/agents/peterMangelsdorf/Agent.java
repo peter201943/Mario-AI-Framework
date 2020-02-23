@@ -13,6 +13,8 @@ public class Agent implements MarioAgent {
 
     private ArrayList<boolean[]> choices;
 
+    //private Task bt = new Task();
+
     @Override
     public void initialize(MarioForwardModel model, MarioTimer timer) {
         

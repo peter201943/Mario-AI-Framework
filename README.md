@@ -45,60 +45,28 @@
 └── src/
     └── agents/
         └── peterMangelsdorf/
+            ├── Helpers/
+            │   ├── Status.java             // Class                -- Values, String, Checks
+            │   ├── Win.java                // Status               -- Represents a Win
+            │   ├── Fail.java               // Status               -- Represents a Fail
+            │   └── Running.java            // Status               -- Represents still Running
             ├── BasicTasks/
             │   ├── Task.java               // Abstract             -- Run() returns Action([bool])
             │   ├── Composite.java          // Task                 -- [Children]
             │   ├── Do.java                 // Composite            -- Run() visits each child until one returns FAIL
             │   ├── Choose.java             // Composite            -- Run() visits each child until one returns PASS
-            │   ├── ChooseRandomly.java     // Choose               -- Do one child randomly
             │   ├── Action.java             // Task                 -- Do a thing to the external environment
             │   └── Condition.java          // Task                 -- Get a thing from the external environment
             ├── MarioTasks/
-            │   ├── RunRight.java           // Action               -- Returns Right and Run
-            │   ├── Jump.java               // Action               -- Returns Jump
-            │   ├── AttackJump.java         // Action               -- Returns Jump/Right commands to kill an enemy
             │   ├── Wait.java               // Action               -- Returns [bool] of no action
+            │   ├── Jump.java               // Action               -- Returns Jump
+            │   ├── RunRight.java           // Action               -- Returns Right and Run
+            │   ├── Stopped.java            // Condition            -- Measure speed of Mario
+            │   ├── AttackJump.java         // Action               -- Returns Jump/Right commands to kill an enemy
             │   ├── EnemyInRange.java       // Condition            -- Can we step/jump on an enemy?
             │   └── EnemiesClose.java       // Condition            -- Do we need to worry?
-            ├── Trees/
-            │   ├── Tree.java               // Abstract             -- Builds a Tree from Tasks, Points to the Root, has Run()
-            │   └── ForwardJump.java        // Tree                 -- Run Right and Jump
-            ├── Agents/
-            │   ├── BTAgent.java            // Interface            -- Tree, Run() -> [bool]]
-            │   └── MarioBTAgent.java       // BasicMarioAIAgent    -- Uses Regular Mario Agent and BT Functionality
-            ├── Helpers/
-            │   ├── Print.java              // Interface            -- Print(depth, name, status)
-            │   └── Status.java             // Class                -- Running, Pass, Fail (Just data)
             └── Agent.java                  // Agent                -- Provide easy access to BT functionality as a standard agent
 ```
-
-
-### Status
- folder     | name              | progress
-------------|-------------------|----------
- Agents     | BTAgent           | ---
- .          | MarioBTAgent      | ---
- .          | .                 | .
- BasicTasks | Action            | ---
- .          | Choose            | ---
- .          | ChooseRandomly    | ---
- .          | Composite         | ---
- .          | Condition         | ---
- .          | Do                | ---
- .          | Task              | ---
- .          | .                 | .
- Helpers    | Print             | ---
- .          | Status            | ---
- .          | .                 | .
- MarioTasks | AttackJump        | ---
- .          | EnemiesClose      | ---
- .          | EnemyInRange      | ---
- .          | Jump              | ---
- .          | RunRight          | ---
- .          | Wait              | ---
- .          | .                 | .
- Trees      | ForwardJump       | ---
- .          | Tree              | ---
 
 
 ---------
@@ -128,9 +96,10 @@
 ## Agent Design
  - Didn't have time to write an XML/YAML parser
  - This is the logic:
+ - If enemies capable of attacking, wait and step on them
+ - otherwise, run right and jump (get lucky)
 
-
-### Current
+### Plain
 ```yaml
 # Forward Jump
 root:
@@ -142,12 +111,15 @@ root:
                     enemyInRange?
                     attackJump!
                 wait!
-        chooseRandomly:
+        do:
+            stopped?
             jump!
             runRight!
+        do:
+            runRight!
 ```
- - If enemies capable of attacking, wait and step on them
- - otherwise, run right and jump (get lucky)
+
+### Type Annotations
 ```yaml
 # Forward Jump                          -- comment
 root:                                   -- container
@@ -159,9 +131,31 @@ root:                                   -- container
                     enemyInRange?       -- condition
                     attackJump!         -- action
                 wait!                   -- action
-        chooseRandomly:                 -- selector
+        do:                             -- selector
+            stopped?                    -- condition
             jump!                       -- action
             runRight!                   -- action
+        do:                             -- selector
+            runRight!                   -- action
+```
+
+### Justifications
+```yaml
+# Forward Jump
+root:
+    choose:
+        do:                             -- deal with enemies
+            enemiesClose?
+            choose:
+                do:
+                    enemyInRange?
+                    attackJump!
+                wait!
+        do:                             -- deal with walls
+            stopped?
+            jump!
+        do:                             -- deal with clock
+            runRight!
 ```
 
 
