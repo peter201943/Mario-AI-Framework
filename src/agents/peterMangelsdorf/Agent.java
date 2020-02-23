@@ -72,20 +72,41 @@ public class Agent implements MarioAgent {
     // Makers
     
     private Container makeBT() {
+    	
+    	// Declarations -- Correct Order
     	Container newBT = new Do();
-    	Choose baseChoose = new Choose();
-    	
-    	// First Clause: Enemies
-    	//baseChoose.Add(doOne);
-    	
-    	// Second Clause: Obstacles
-    	
-    	//baseChoose.Add(doTwo);
-    	
-    	// Third Clause: Time
-    	//baseChoose.Add(doThree);
-    	
+	    	Choose baseChoose = new Choose();
+		    	Container doOne = new Do();
+		    		Condition enemiesClose = new EnemiesClose();
+		    		Container secondChoose = new Choose();
+		    			Container secondDo = new Do();
+		    				Condition enemiesInRange = new EnemiesInRange();
+		    				Action attackJump = new AttackJump();
+		    			Action wait = new Wait();
+		    	Container doTwo = new Do();
+			    	Condition stopped = new Stopped();
+			    	Action jump = new Jump();
+			    	Action runRight = new RunRight();
+		    	Container doThree = new Do();
+		          	//Action runRight = new RunRight();
+
+    	// Insertions -- Reverse Order
+		    		doOne.Add(enemiesClose);
+		    				secondDo.Add(enemiesInRange);
+		    				secondDo.Add(attackJump);
+		    			secondChoose.Add(secondDo);
+		    			secondChoose.Add(wait);
+		    		doOne.Add(secondChoose);
+		    	baseChoose.Add(doOne);
+		    		doTwo.Add(stopped);
+		    		doTwo.Add(jump);
+		    		doTwo.Add(runRight);
+		    	baseChoose.Add(doTwo);
+		    		doThree.Add(runRight);
+		    	baseChoose.Add(doThree);
     	newBT.Add(baseChoose);
+ 
+    	// Finished!
     	return newBT;
     }
 
