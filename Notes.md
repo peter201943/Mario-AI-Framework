@@ -30,6 +30,7 @@
      - [Language Representations](#language-representations)
      - [Explicit Sorting Representation](#explicit-sorting-representation)
      - [Help and Understanding](#help-and-understanding)
+     - [Cool Stuff](#cool-stuff)
 
 
 ## Links
