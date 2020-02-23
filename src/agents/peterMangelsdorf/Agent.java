@@ -47,7 +47,6 @@ public class Agent implements MarioAgent {
     public boolean[] getActions(MarioForwardModel model, MarioTimer timer) {
     	ActionState theAction = new ActionState();
     	bt.Execute(theAction, model);
-    	//System.out.println("[0] Action: (" + timer.getRemainingTime() + ") " + theAction[0] + " " + theAction[1] + " " + theAction[2] + " " + theAction[3] + " " + theAction[4]);
         return theAction.value;
     }
 
@@ -72,12 +71,6 @@ public class Agent implements MarioAgent {
 		    			Action wait = new Wait();
 		    	Container doTwo = new Do();
 			    	Condition stopped = new Stopped();
-			    	/*Action jump = new Jump();
-			    	Action jump2 = new Jump();
-			    	Action jump3 = new Jump();
-			    	Action jump4 = new Jump();
-			    	Action jump5 = new Jump();
-			    	Action runRight = new RunRight();*/
 			    	Action rightRunJump = new RightRunJump();
 		    	Container doThree = new Do();
 		          	Action runRight2 = new RunRight();
@@ -91,12 +84,6 @@ public class Agent implements MarioAgent {
 		    		doOne.Add(secondChoose);
 		    	baseChoose.Add(doOne);
 		    		doTwo.Add(stopped);
-		    		/*doTwo.Add(jump);
-		    		doTwo.Add(jump2);
-		    		doTwo.Add(jump3);
-		    		doTwo.Add(jump4);
-		    		doTwo.Add(jump5);
-		    		doTwo.Add(runRight);*/
 		    		doTwo.Add(rightRunJump);
 		    	baseChoose.Add(doTwo);
 		    		doThree.Add(runRight2);

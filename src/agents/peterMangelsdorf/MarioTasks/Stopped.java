@@ -12,6 +12,7 @@ public class Stopped extends Condition{
 	
 	@Override
 	public Status Execute(ActionState action, MarioForwardModel model) {
+
 		// Decide Speed
 		boolean stopped = (model.getMarioFloatVelocity()[0] <= 0.1);
 		

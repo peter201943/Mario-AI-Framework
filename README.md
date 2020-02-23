@@ -90,6 +90,8 @@
 ### Chapter 3: Making Tasks
  - https://stackoverflow.com/questions/42849890/can-i-mutate-argument-in-java
  - Why...
+ - omg omg omg it works it works it work!
+ - Andd..... he falls into the pit. \*sigh\*... more work.
 
 
 ---------
@@ -115,8 +117,10 @@ do:
                 wait!
         do:
             stopped?
-            jump!
-            runRight!
+            rightRunJump!
+        do:
+            pit?
+            rightRunJump!
         do:
             runRight!
 ```
@@ -135,8 +139,10 @@ do:                                     -- sequence
                 wait!                   -- action
         do:                             -- selector
             stopped?                    -- condition
-            jump!                       -- action
-            runRight!                   -- action
+            rightRunJump!               -- action
+        do:                             -- sequence
+            pit?                        -- condition
+            rightRunJump!               -- action
         do:                             -- selector
             runRight!                   -- action
 ```
@@ -155,8 +161,10 @@ do:
                 wait!
         do:                             -- deal with walls
             stopped?
-            jump!
-            runRight!
+            rightRunJump!
+        do:                             -- deal with pits
+            pit?
+            rightRunJump!
         do:                             -- deal with clock
             runRight!
 ```
