@@ -7,62 +7,62 @@ import engine.helper.GameStatus;
 import engine.helper.SpriteType;
 
 public class MarioForwardModel {
-    private static final int OBS_SCENE_SHIFT = 16;
+    private static final int OBS_SCENE_SHIFT = 		16;
 
     // Generic values
-    public static final int OBS_NONE = 0;
-    public static final int OBS_UNDEF = -42;
+    public static final int OBS_NONE = 				0;
+    public static final int OBS_UNDEF = 			-42;
 
     // Common between scene detail level 0 and scene detail level 1
-    public static final int OBS_SOLID = OBS_SCENE_SHIFT + 1;
-    public static final int OBS_BRICK = OBS_SCENE_SHIFT + 6;
-    public static final int OBS_QUESTION_BLOCK = OBS_SCENE_SHIFT + 8;
-    public static final int OBS_COIN = OBS_SCENE_SHIFT + 15;
+    public static final int OBS_SOLID = 			OBS_SCENE_SHIFT + 1;
+    public static final int OBS_BRICK = 			OBS_SCENE_SHIFT + 6;
+    public static final int OBS_QUESTION_BLOCK = 	OBS_SCENE_SHIFT + 8;
+    public static final int OBS_COIN = 				OBS_SCENE_SHIFT + 15;
     // Scene detail level 0
-    public static final int OBS_PYRAMID_SOLID = OBS_SCENE_SHIFT + 2;
-    public static final int OBS_PIPE_BODY_RIGHT = OBS_SCENE_SHIFT + 21;
-    public static final int OBS_PIPE_BODY_LEFT = OBS_SCENE_SHIFT + 20;
-    public static final int OBS_PIPE_TOP_RIGHT = OBS_SCENE_SHIFT + 19;
-    public static final int OBS_PIPE_TOP_LEFT = OBS_SCENE_SHIFT + 18;
-    public static final int OBS_USED_BLOCK = OBS_SCENE_SHIFT + 14;
-    public static final int OBS_BULLET_BILL_BODY = OBS_SCENE_SHIFT + 5;
-    public static final int OBS_BULLET_BILL_NECT = OBS_SCENE_SHIFT + 4;
-    public static final int OBS_BULLET_BILL_HEAD = OBS_SCENE_SHIFT + 3;
-    public static final int OBS_BACKGROUND = OBS_SCENE_SHIFT + 47;
-    public static final int OBS_PLATFORM_SINGLE = OBS_SCENE_SHIFT + 43;
-    public static final int OBS_PLATFORM_LEFT = OBS_SCENE_SHIFT + 44;
-    public static final int OBS_PLATFORM_RIGHT = OBS_SCENE_SHIFT + 45;
-    public static final int OBS_PLATFORM_CENTER = OBS_SCENE_SHIFT + 46;
+    public static final int OBS_PYRAMID_SOLID = 	OBS_SCENE_SHIFT + 2;
+    public static final int OBS_PIPE_BODY_RIGHT = 	OBS_SCENE_SHIFT + 21;
+    public static final int OBS_PIPE_BODY_LEFT = 	OBS_SCENE_SHIFT + 20;
+    public static final int OBS_PIPE_TOP_RIGHT = 	OBS_SCENE_SHIFT + 19;
+    public static final int OBS_PIPE_TOP_LEFT = 	OBS_SCENE_SHIFT + 18;
+    public static final int OBS_USED_BLOCK = 		OBS_SCENE_SHIFT + 14;
+    public static final int OBS_BULLET_BILL_BODY = 	OBS_SCENE_SHIFT + 5;
+    public static final int OBS_BULLET_BILL_NECT = 	OBS_SCENE_SHIFT + 4;
+    public static final int OBS_BULLET_BILL_HEAD = 	OBS_SCENE_SHIFT + 3;
+    public static final int OBS_BACKGROUND = 		OBS_SCENE_SHIFT + 47;
+    public static final int OBS_PLATFORM_SINGLE = 	OBS_SCENE_SHIFT + 43;
+    public static final int OBS_PLATFORM_LEFT = 	OBS_SCENE_SHIFT + 44;
+    public static final int OBS_PLATFORM_RIGHT = 	OBS_SCENE_SHIFT + 45;
+    public static final int OBS_PLATFORM_CENTER = 	OBS_SCENE_SHIFT + 46;
     // Scene detail level 1
-    public static final int OBS_PLATFORM = OBS_SCENE_SHIFT + 43;
-    public static final int OBS_CANNON = OBS_SCENE_SHIFT + 3;
-    public static final int OBS_PIPE = OBS_SCENE_SHIFT + 18;
+    public static final int OBS_PLATFORM = 			OBS_SCENE_SHIFT + 43;
+    public static final int OBS_CANNON = 			OBS_SCENE_SHIFT + 3;
+    public static final int OBS_PIPE = 				OBS_SCENE_SHIFT + 18;
     // Scene detail level 2
-    public static final int OBS_SCENE_OBJECT = OBS_SCENE_SHIFT + 84;
+    public static final int OBS_SCENE_OBJECT = 		OBS_SCENE_SHIFT + 84;
 
     // Common between enemies detail level 0 and 1
-    public static final int OBS_FIREBALL = 16;
+    public static final int OBS_FIREBALL = 			16;
     // Enemies Detail 0
-    public static final int OBS_GOOMBA = 2;
-    public static final int OBS_GOOMBA_WINGED = 3;
-    public static final int OBS_RED_KOOPA = 4;
-    public static final int OBS_RED_KOOPA_WINGED = 5;
-    public static final int OBS_GREEN_KOOPA = 6;
+    public static final int OBS_GOOMBA = 			2;
+    public static final int OBS_GOOMBA_WINGED = 	3;
+    public static final int OBS_RED_KOOPA = 		4;
+    public static final int OBS_RED_KOOPA_WINGED = 	5;
+    public static final int OBS_GREEN_KOOPA = 		6;
     public static final int OBS_GREEN_KOOPA_WINGED = 7;
-    public static final int OBS_SPIKY = 8;
-    public static final int OBS_SPIKY_WINGED = 9;
-    public static final int OBS_BULLET_BILL = 10;
-    public static final int OBS_ENEMY_FLOWER = 11;
-    public static final int OBS_MUSHROOM = 12;
-    public static final int OBS_FIRE_FLOWER = 13;
-    public static final int OBS_SHELL = 14;
-    public static final int OBS_LIFE_MUSHROOM = 15;
+    public static final int OBS_SPIKY = 			8;
+    public static final int OBS_SPIKY_WINGED = 		9;
+    public static final int OBS_BULLET_BILL = 		10;
+    public static final int OBS_ENEMY_FLOWER = 		11;
+    public static final int OBS_MUSHROOM = 			12;
+    public static final int OBS_FIRE_FLOWER = 		13;
+    public static final int OBS_SHELL = 			14;
+    public static final int OBS_LIFE_MUSHROOM = 	15;
     // Enemies Detail 1
-    public static final int OBS_STOMPABLE_ENEMY = 2;
+    public static final int OBS_STOMPABLE_ENEMY = 	2;
     public static final int OBS_NONSTOMPABLE_ENEMY = 8;
-    public static final int OBS_SPECIAL_ITEM = 12;
+    public static final int OBS_SPECIAL_ITEM = 		12;
     // Enemies Detail 2
-    public static final int OBS_ENEMY = 1;
+    public static final int OBS_ENEMY = 			1;
 
     public static int getSpriteTypeGeneralization(SpriteType sprite, int detail) {
         switch (detail) {

@@ -1,6 +1,7 @@
 package agents.peterMangelsdorf.BasicTasks;
 
 import agents.peterMangelsdorf.Helpers.*;
+import engine.core.MarioForwardModel;
 
 public class Condition extends Task{
 	
@@ -9,7 +10,7 @@ public class Condition extends Task{
 	}
 	
 	@Override
-	public Status Execute(boolean[] action) {
+	public Status Execute(boolean[] action, MarioForwardModel model) {
 		return new Win();
 	}
 

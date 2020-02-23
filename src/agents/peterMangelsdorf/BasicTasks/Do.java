@@ -1,6 +1,7 @@
 package agents.peterMangelsdorf.BasicTasks;
 
 import agents.peterMangelsdorf.Helpers.*;
+import engine.core.MarioForwardModel;
 
 public class Do extends Container{
 
@@ -12,10 +13,10 @@ public class Do extends Container{
 	}
 	
 	@Override
-	public Status Execute(boolean[] action) {
+	public Status Execute(boolean[] action, MarioForwardModel model) {
 		Status temp = new Status();
 		for (Task child : this.Children()){
-			temp = child.Execute(action);
+			temp = child.Execute(action, model);
 			if (temp.Value() == status.fail()) {
 				return new Fail();
 			}

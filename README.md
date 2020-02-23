@@ -61,8 +61,8 @@
             │   ├── Wait.java               // Action               -- Returns [bool] of no action
             │   ├── Jump.java               // Action               -- Returns Jump
             │   ├── RunRight.java           // Action               -- Returns Right and Run
-            │   ├── Stopped.java            // Condition            -- Measure speed of Mario
             │   ├── AttackJump.java         // Action               -- Returns Jump/Right commands to kill an enemy
+            │   ├── Stopped.java            // Condition            -- Measure speed of Mario
             │   ├── EnemyInRange.java       // Condition            -- Can we step/jump on an enemy?
             │   └── EnemiesClose.java       // Condition            -- Do we need to worry?
             └── Agent.java                  // Agent                -- Provide easy access to BT functionality as a standard agent
@@ -102,7 +102,7 @@
 ### Plain
 ```yaml
 # Forward Jump
-root:
+do:
     choose:
         do:
             enemiesClose?
@@ -122,7 +122,7 @@ root:
 ### Type Annotations
 ```yaml
 # Forward Jump                          -- comment
-root:                                   -- container
+do:                                     -- sequence
     choose:                             -- selector
         do:                             -- sequence
             enemiesClose?               -- condition
@@ -142,7 +142,7 @@ root:                                   -- container
 ### Justifications
 ```yaml
 # Forward Jump
-root:
+do:
     choose:
         do:                             -- deal with enemies
             enemiesClose?
@@ -154,6 +154,7 @@ root:
         do:                             -- deal with walls
             stopped?
             jump!
+            runRight!
         do:                             -- deal with clock
             runRight!
 ```

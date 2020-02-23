@@ -7,19 +7,44 @@ import engine.core.MarioAgent;
 import engine.core.MarioForwardModel;
 import engine.core.MarioTimer;
 
+import agents.peterMangelsdorf.BasicTasks.*;
+import agents.peterMangelsdorf.MarioTasks.*;
+import agents.peterMangelsdorf.Helpers.*;
+
 public class Agent implements MarioAgent {
     
+	
+	
+	
+	
+	
+	
+	
+	// Variables
+	
     private Random rnd;
-
     private ArrayList<boolean[]> choices;
+    private Container bt;
+    private MarioForwardModel model;
 
-    //private Task bt = new Task();
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // Overrides
+    
     @Override
     public void initialize(MarioForwardModel model, MarioTimer timer) {
-        
+        this.model = model; 
         rnd = new Random();
         choices = makeChoices();
+        bt = makeBT();
     }
 
     @Override
@@ -31,12 +56,40 @@ public class Agent implements MarioAgent {
     public String getAgentName() {
         return "PeterAgent";
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // Makers
+    
+    private Container makeBT() {
+    	Container newBT = new Do();
+    	Choose baseChoose = new Choose();
+    	
+    	// First Clause: Enemies
+    	//baseChoose.Add(doOne);
+    	
+    	// Second Clause: Obstacles
+    	//baseChoose.Add(doTwo);
+    	
+    	// Third Clause: Time
+    	//baseChoose.Add(doThree);
+    	
+    	newBT.Add(baseChoose);
+    	return newBT;
+    }
 
-    /**
-     * Constructs the list of random choices
-     */
-    private ArrayList makeChoices()
-    {
+    private ArrayList<boolean[]> makeChoices() {
         // init
         choices = new ArrayList<>();
 
@@ -87,5 +140,4 @@ public class Agent implements MarioAgent {
         // Return
         return choices;
     }
-
 }
